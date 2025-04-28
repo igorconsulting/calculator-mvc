@@ -4,3 +4,5 @@ data/
 uv.lock
 run-test.py
 run2-test.py
+.venv
+__pycache__/
