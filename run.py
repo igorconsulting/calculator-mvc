@@ -1,6 +1,10 @@
-from control.view import ViewController
+from control.calculator import CalculatorController
+from flask import Flask
 
 if __name__=="__main__":
-    controller = ViewController()
+    app = Flask(__name__)
 
-    controller.display()
+    calculator_controller = CalculatorController(app=app)
+
+    app.run(port=3000)
+
