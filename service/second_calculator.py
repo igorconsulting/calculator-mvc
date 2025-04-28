@@ -21,4 +21,3 @@ class SecondCalculator:
     def calculate(self) -> float:
         result = self.part_1()
         return self.part_2(result)
-
