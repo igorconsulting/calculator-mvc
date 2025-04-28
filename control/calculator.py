@@ -16,7 +16,7 @@ class CalculatorController:
         @self.app.route('/first', methods=["POST"])
         def first_calculator():
             body = request.get_json()
-            
+
             try:
                 value = self._validate_value(body)
             except (ValueError, TypeError) as e:
@@ -57,10 +57,10 @@ class CalculatorController:
 
             if result:
                 return jsonify({"status": "success",
-                        "message": "success proceed"})
+                        "message": "success!"})
             
             return jsonify({"status": "fail",
-                        "message": "failed proceed"})
+                        "message": "failed!"})
 
     def _validate_value(self, body: dict) -> float:
         if not body or "value" not in body:
