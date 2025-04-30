@@ -5,7 +5,11 @@ class SecondCalculator:
     def __init__(self, num_list: list[float]):
         self.num_list = num_list
 
-    def part_1(self) -> list[float]:
+    def calculate(self) -> float:
+        result = self.__part_1()
+        return self.__part_2(result)
+
+    def __part_1(self) -> list[float]:
         final_list = []
         for num in self.num_list:
             result = num*11
@@ -14,10 +18,7 @@ class SecondCalculator:
 
         return final_list
 
-    def part_2(self,result_list:list[float]) -> float:
+    def __part_2(self,result_list:list[float]) -> float:
         std_value = std(result_list)
         return 1/std_value
     
-    def calculate(self) -> float:
-        result = self.part_1()
-        return self.part_2(result)
