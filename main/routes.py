@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, request
-from service.first_calculator import FirstCalculator
-from service.second_calculator import SecondCalculator
-from service.third_calculator import ThirdCalculator
+from control.first_calculator import FirstCalculator
+from control.second_calculator import SecondCalculator
+from control.third_calculator import ThirdCalculator
 
-class CalculatorController:
+class CalculatorRoutes:
     """
     Defines routes to connect with an instance of calculator service
     """
