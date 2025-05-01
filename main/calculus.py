@@ -17,3 +17,6 @@ class CalculusManager:
     
     def var(self,value_list: list[float]) -> float:
         return self.__np.var(value_list)
+    
+    def sqrt(self, value: float) -> float:
+        return self.__math.sqrt(value)

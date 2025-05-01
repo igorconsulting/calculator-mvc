@@ -1,5 +1,6 @@
-import math
-from statistics import mean
+from main.calculus import CalculusManager
+
+calculus = CalculusManager()
 
 class FirstCalculator:
     def __init__(self,value: float):
@@ -20,13 +21,13 @@ class FirstCalculator:
     def __part_1(self,value: float) -> float:
         result = value/4
         result = result+7
-        result = math.sqrt(result)
+        result = calculus.sqrt(result)
         result = 0.257*result
 
         return result
     
     def __part_2(self,value: float) -> float:
-        result = math.pow(value,2.121)
+        result = calculus.pow(value,2.121)
         result/=5
         result+=1
         return result
@@ -35,5 +36,5 @@ class FirstCalculator:
         return value
     
     def __part_4(self,value_list:list[float]) -> float:
-        return mean(value_list)
+        return calculus.mean(value_list)
     
