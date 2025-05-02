@@ -20,3 +20,4 @@ class CalculusManager:
     
     def sqrt(self, value: float) -> float:
         return self.__math.sqrt(value)
+    
