@@ -1,6 +1,7 @@
 import os
 from abc import ABC, abstractmethod
 
+
 class Display(ABC):
     def __init__(self):
         """
@@ -12,12 +13,12 @@ class Display(ABC):
         """
         Clears the console screen.
         """
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("cls" if os.name == "nt" else "clear")
 
     def show_message(self, message: str):
         """
         Displays a message to the user.
-        
+
         Args:
             message (str): The message to be displayed.
         """

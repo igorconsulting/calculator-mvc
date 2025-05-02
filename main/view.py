@@ -1,6 +1,7 @@
-from view.home import Home
-from view.display_builder import Display
 from control.calculator import CalculatorController
+from view.display_builder import Display
+from view.home import Home
+
 
 class ViewController(Display):
     def __init__(self):
@@ -8,10 +9,10 @@ class ViewController(Display):
         self.home = Home()
         self.calculator = CalculatorController()
         self.routes = {
-            '1': lambda: self.calculator.run('1'),
-            '2': lambda: self.calculator.run('2'),
-            '3': lambda: self.calculator.run('3'),
-            '0': self.exit_app
+            "1": lambda: self.calculator.run("1"),
+            "2": lambda: self.calculator.run("2"),
+            "3": lambda: self.calculator.run("3"),
+            "0": self.exit_app,
         }
 
     def move_screen(self, command: str) -> None:

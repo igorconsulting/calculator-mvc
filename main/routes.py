@@ -1,19 +1,21 @@
 from flask import Flask, jsonify, request
+
 from control.first_calculator import FirstCalculator
 from control.second_calculator import SecondCalculator
 from control.third_calculator import ThirdCalculator
+
 
 class CalculatorRoutes:
     """
     Defines routes to connect with an instance of calculator service
     """
+
     def __init__(self, app: Flask):
         self.app = app
         self.register_routes()
 
-
     def register_routes(self):
-        @self.app.route('/first', methods=["POST"])
+        @self.app.route("/first", methods=["POST"])
         def first_calculator():
             body = request.get_json()
 
@@ -25,11 +27,9 @@ class CalculatorRoutes:
             calculator = FirstCalculator(value)
             result = calculator.calculate()
 
-            return jsonify({"status": "success",
-                        "result": result})
+            return jsonify({"status": "success", "result": result})
 
-
-        @self.app.route('/second', methods=["POST"])
+        @self.app.route("/second", methods=["POST"])
         def second_calculator():
             body = request.get_json()
             try:
@@ -40,11 +40,9 @@ class CalculatorRoutes:
             calculator = SecondCalculator(value_list)
             result = calculator.calculate()
 
-            return jsonify({"status": "success",
-                        "result": result})
-        
+            return jsonify({"status": "success", "result": result})
 
-        @self.app.route('/third', methods=["POST"])
+        @self.app.route("/third", methods=["POST"])
         def third_calculator():
             body = request.get_json()
             try:
@@ -56,11 +54,9 @@ class CalculatorRoutes:
             result = calculator.compare()
 
             if result:
-                return jsonify({"status": "success",
-                        "message": "success!"})
-            
-            return jsonify({"status": "fail",
-                        "message": "failed!"})
+                return jsonify({"status": "success", "message": "success!"})
+
+            return jsonify({"status": "fail", "message": "failed!"})
 
     def _validate_value(self, body: dict) -> float:
         if not body or "value" not in body:
@@ -70,7 +66,7 @@ class CalculatorRoutes:
 
         except (ValueError, TypeError):
             raise TypeError("'value' must be a number.")
-        
+
         return value
 
     def _validate_value_list(self, body: dict) -> list[float]:
@@ -87,5 +83,5 @@ class CalculatorRoutes:
 
         if len(value_list) == 0:
             raise ValueError("'value_list' cannot be empty.")
-        
+
         return value_list

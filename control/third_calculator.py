@@ -2,6 +2,7 @@ from main.calculus import CalculusManager
 
 calculator = CalculusManager()
 
+
 class ThirdCalculator:
     def __init__(self, num_list: list[float]):
         self.num_list = num_list
@@ -11,7 +12,7 @@ class ThirdCalculator:
 
     def __get_std(self) -> float:
         return calculator.std(self.num_list)
-    
+
     def compare(self) -> bool:
         std_value = self.__get_std()
         var_value = self.__get_variance()
